@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vMusic - The AI-Powered Music Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for the page */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #e2e8f0;
+        }
+
+        /* Animation for elements fading in on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Animated gradient for the hero section */
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(38, 78, 112, 0.3), rgba(10, 10, 10, 0) 70%);
+        }
+        
+        /* Styling for the feature and USP cards */
+        .feature-card, .usp-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover, .usp-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.1);
+        }
+
+        /* Header animation */
+        .animated-heading {
+            animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        }
+
+        @keyframes text-focus-in {
+            0% {
+                filter: blur(12px);
+                opacity: 0;
+            }
+            100% {
+                filter: blur(0px);
+                opacity: 1;
+            }
+        }
+        
+        /* Icon styling */
+        .icon-glow {
+            color: #00f2ea;
+            filter: drop-shadow(0 0 8px rgba(0, 242, 234, 0.7));
+        }
+
+        /* Add padding top to body to account for fixed navbar */
+        main {
+            padding-top: 80px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-lg transition-shadow duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-600">vMusic</a>
+            <div class="hidden md:flex items-center space-x-8">
+               
+            </div>
+            <button id="mobile-menu-button" class="md:hidden p-2 text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/50">
+            <a href="#overview" class="nav-link block py-3 px-6 text-sm text-slate-300 hover:bg-slate-800">Overview</a>
+            <a href="#features" class="nav-link block py-3 px-6 text-sm text-slate-300 hover:bg-slate-800">Features</a>
+            <a href="#usps" class="nav-link block py-3 px-6 text-sm text-slate-300 hover:bg-slate-800">USPs</a>
+            <a href="#tech-stack" class="nav-link block py-3 px-6 text-sm text-slate-300 hover:bg-slate-800">Tech Stack</a>
+            <a href="#roadmap" class="nav-link block py-3 px-6 text-sm text-slate-300 hover:bg-slate-800">Roadmap</a>
+        </div>
+    </nav>
+
+    <!-- Header & Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden hero-gradient">
+        <div class="text-center p-4 z-10">
+            <h1 class="animated-heading text-5xl md:text-7xl font-extrabold tracking-tight mb-4">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-600">vMusic</span>
+            </h1>
+            <p class="animated-heading text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto" style="animation-delay: 0.5s;">
+                The AI-Powered Music Experience
+            </p>
+        </div>
+        <div class="absolute bottom-10 animate-bounce">
+            <a href="#overview" aria-label="Scroll down">
+                <svg class="w-8 h-8 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6">
+
+        <!-- Project Overview Section -->
+        <section id="overview" class="py-20 fade-in scroll-mt-20">
+            <h2 class="text-4xl font-bold text-center mb-4">Project Overview & Vision</h2>
+            <p class="text-lg text-slate-400 max-w-4xl mx-auto text-center">
+                vMusic aims to revolutionize the way users interact with their music. It's not just a player; it's a personal DJ that understands your taste, mood, and specific requests. The core vision is to create a seamless and intuitive music experience, moving beyond simple playback to intelligent, personalized curation and control.
+            </p>
+        </section>
+
+        <!-- Core Features Section -->
+        <section id="features" class="py-20 scroll-mt-20">
+            <h2 class="text-4xl font-bold text-center mb-12">Core Features</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature Cards -->
+                <div class="feature-card p-6 rounded-xl fade-in">
+                    <div class="icon-glow mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 6l12-3" /></svg></div>
+                    <h3 class="text-xl font-bold mb-2">Intelligent Playlist Creation</h3>
+                    <p class="text-slate-400">Use natural language to request complex playlists.</p>
+                </div>
+                <div class="feature-card p-6 rounded-xl fade-in" style="transition-delay: 0.1s;">
+                    <div class="icon-glow mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
+                    <h3 class="text-xl font-bold mb-2">Precise Playback Control</h3>
+                    <p class="text-slate-400">Start songs from specific timestamps or loop segments.</p>
+                </div>
+                <div class="feature-card p-6 rounded-xl fade-in" style="transition-delay: 0.2s;">
+                     <div class="icon-glow mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg></div>
+                    <h3 class="text-xl font-bold mb-2">Personalized Curation</h3>
+                    <p class="text-slate-400">AI learns your habits to suggest music based on taste and time.</p>
+                </div>
+                <div class="feature-card p-6 rounded-xl fade-in" style="transition-delay: 0.3s;">
+                    <div class="icon-glow mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg></div>
+                    <h3 class="text-xl font-bold mb-2">Voice-Activated Control</h3>
+                    <p class="text-slate-400">Use the wake word "vMusic" for hands-free control.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Unique Selling Propositions Section -->
+        <section id="usps" class="py-20 scroll-mt-20">
+            <h2 class="text-4xl font-bold text-center mb-12">Unique Selling Propositions</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                 <!-- USP Cards -->
+                <div class="usp-card p-6 rounded-xl fade-in"><h3 class="text-xl font-bold mb-2 text-cyan-400">Mood-Based Playlists</h3><p class="text-slate-400">AI analyzes your voice and language to create the perfect vibe.</p></div>
+                <div class="usp-card p-6 rounded-xl fade-in" style="transition-delay: 0.1s;"><h3 class="text-xl font-bold mb-2 text-cyan-400">AI-Generated "Mashups"</h3><p class="text-slate-400">Seamless transitions between songs for a continuous mix.</p></div>
+                <div class="usp-card p-6 rounded-xl fade-in" style="transition-delay: 0.2s;"><h3 class="text-xl font-bold mb-2 text-cyan-400">Social & Collaborative</h3><p class="text-slate-400">Share playlists and collaborate with friends.</p></div>
+                <div class="usp-card p-6 rounded-xl fade-in" style="transition-delay: 0.3s;"><h3 class="text-xl font-bold mb-2 text-cyan-400">"Surprise Me" Feature</h3><p class="text-slate-400">Get unexpected playlists based on a loose theme.</p></div>
+            </div>
+        </section>
+
+        
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-900/50">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-500">
+            <p>&copy; 2025 vMusic. All Rights Reserved.</p>
+            
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for fade-in animations on scroll
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                appearOnScroll.unobserve(entry.target);
+            });
+        }, appearOptions);
+        faders.forEach(fader => appearOnScroll.observe(fader));
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Navbar shadow on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+    <style>
+        /* Additional styles for the roadmap timeline */
+        .timeline-container { position: relative; width: 100%; padding-left: calc(50% + 30px); }
+        .timeline-container-left { padding-left: 0; padding-right: calc(50% + 30px); text-align: right; }
+        .timeline-pointer { content: ''; position: absolute; width: 16px; height: 16px; background: #0a0a0a; border: 3px solid #06b6d4; border-radius: 50%; top: 24px; left: 50%; transform: translateX(-50%); z-index: 1; }
+        .timeline-pointer-left { left: auto; right: 50%; transform: translateX(50%); }
+        @media (max-width: 768px) {
+            .timeline-container, .timeline-container-left { padding-left: 30px; padding-right: 0; text-align: left; }
+            .timeline-pointer, .timeline-pointer-left { left: 0; }
+            .absolute.z-0 { left: 8px; }
+        }
+    </style>
+</body>
+</html>
